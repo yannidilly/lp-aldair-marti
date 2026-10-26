@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dinheiro Bem-Vindo · Workshop ao vivo</title>
+  <script src="./vendor/react.js"></script>
+  <script src="./vendor/react-dom.js"></script>
+  <script src="./support.js"></script>
+</head>
+
+<body>
+  <x-dc>
+    <helmet>
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Playfair+Display:wght@400;500;600&amp;display=swap">
+      <style>
+        body {
+          margin: 0
+        }
+
+        a {
+          color: inherit
+        }
+
+        a.cta:hover {
+          filter: brightness(1.07)
+        }
+
+        a:focus-visible,
+        summary:focus-visible {
+          outline: 3px solid currentColor;
+          outline-offset: 3px
+        }
+
+        details>summary {
+          list-style: none;
+          cursor: pointer
+        }
+
+        details>summary::-webkit-details-marker {
+          display: none
+        }
+
+        details[open] .faq-plus {
+          transform: rotate(45deg)
+        }
+
+        @media (max-width: 480px) {
+          a.cta-lg {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 20px !important
+          }
+        }
+      </style>
+    </helmet>
+    <div
+      style="width:100%;box-sizing:border-box;font-family:'Outfit',system-ui,sans-serif;color:#1B1F44;background:#F3F4F9;font-size:18px;line-height:1.6">
+
+      <!-- HERO -->
+      <section style="background:#1B1F44;color:#FFFFFF">
+        <div style="max-width:1120px;margin:0 auto;padding:24px clamp(18px,5vw,24px) clamp(64px,11vw,88px);box-sizing:border-box">
+          <header
+            style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-bottom:clamp(40px,8vw,64px)">
+            <div>
+              <div style="font-family:'Playfair Display',Georgia,serif;font-size:32px;line-height:1.1;font-weight:500">
+                Aldair Marti</div>
+              <div style="font-size:14px;letter-spacing:0.22em;color:#C9CCE3">desenvolvimento humano</div>
+            </div>
+            <a class="cta" href="{{whatsappUrl}}"
+              style="display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border:1px solid #E3C98F;border-radius:999px;color:#E3C98F;text-decoration:none;font-weight:500;font-size:16px">Quero
+              minha vaga</a>
+          </header>
+
+          <div style="display:flex;flex-wrap:wrap;gap:clamp(40px,7vw,56px);align-items:center">
+            <div style="flex:1 1 480px;min-width:0">
+              <div
+                style="display:inline-block;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#E3C98F;font-weight:500;margin-bottom:20px">
+                Workshop ao vivo · 21 de novembro</div>
+              <h1
+                style="margin:0 0 20px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(44px,7vw,84px);line-height:1.04">
+                Dinheiro <span style="white-space:nowrap">Bem-Vindo</span></h1>
+              <p style="margin:0 0 12px;font-size:clamp(20px,2.4vw,26px);line-height:1.4;font-weight:300;color:#FFFFFF">
+                Consciência financeira, biografia e prosperidade.</p>
+              <p style="margin:0 0 36px;font-size:18px;color:#C9CCE3;max-width:560px">Quatro horas, em grupo pequeno,
+                para olhar a sua história com o dinheiro e escolher com mais clareza e gentileza como seguir daqui.</p>
+
+              <div style="display:flex;flex-wrap:wrap;gap:14px 28px;margin-bottom:40px;font-size:16px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3C98F"
+                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3.5" y="5" width="17" height="15" rx="2"></rect>
+                    <path d="M3.5 10h17M8 3v4M16 3v4"></path>
+                  </svg>
+                  <span>Sábado, 21/11/2026</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3C98F"
+                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="8.5"></circle>
+                    <path d="M12 7.5V12l3 2"></path>
+                  </svg>
+                  <span>9h às 13h (horário de Brasília)</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3C98F"
+                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="6" width="13" height="12" rx="2"></rect>
+                    <path d="M16 10.5l5-3v9l-5-3"></path>
+                  </svg>
+                  <span>Ao vivo, em sala privada no Zoom</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3C98F"
+                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="8.5" r="3.2"></circle>
+                    <path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M16 5.5a3 3 0 010 6M18 14c1.8.7 3 2.3 3 5"></path>
+                  </svg>
+                  <span>Somente 15 vagas</span>
+                </div>
+              </div>
+
+              <div style="display:flex;flex-wrap:wrap;gap:20px 28px;align-items:center">
+                <a class="cta cta-lg" href="{{whatsappUrl}}"
+                  style="display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:999px;background:#E3C98F;color:#1B1F44;text-decoration:none;font-weight:600;font-size:18px">Quero
+                  garantir minha vaga</a>
+                <div style="font-size:16px;color:#C9CCE3">Investimento de <strong
+                    style="color:#FFFFFF;font-weight:600">R$ 97</strong><br>Inscrição finalizada pelo WhatsApp</div>
+              </div>
+            </div>
+
+            <div style="flex:0 1 340px;min-width:0;width:100%;max-width:400px;margin:0 auto">
+              <img src="public/aldair-marti.jpeg" alt="Aldair Marti sorrindo, sentada em seu espaço de atendimento"
+                style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:200px 200px 16px 16px;background:#252A58;border:1px solid rgba(255,255,255,0.22);box-sizing:border-box">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FRASE -->
+      <section style="background:#FFFFFF">
+        <div style="max-width:880px;margin:0 auto;padding:clamp(56px,10vw,80px) clamp(18px,5vw,24px);box-sizing:border-box;text-align:center">
+          <p
+            style="margin:0 0 20px;font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,4vw,40px);line-height:1.3;font-weight:400">
+            Consciência financeira não é passar perrengue guardando. Não é deixar de comprar: é comprar consciente.</p>
+          <div style="font-size:16px;color:#4A4F73">Aldair Marti</div>
+        </div>
+      </section>
+
+      <!-- PARA QUEM -->
+      <section style="background:#F3F4F9">
+        <div style="max-width:1120px;margin:0 auto;padding:clamp(64px,12vw,96px) clamp(18px,5vw,24px);box-sizing:border-box">
+          <div
+            style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#4A4F73;margin-bottom:12px">
+            Para quem é</div>
+          <h2
+            style="margin:0 0 20px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15;max-width:760px">
+            Antes de ser número, o dinheiro é relação</h2>
+          <p style="margin:0 0 48px;max-width:720px;color:#4A4F73">Ao longo da vida aprendemos sobre dinheiro
+            observando, sentindo e repetindo padrões, muitas vezes sem perceber. Este workshop é para quem quer
+            reconhecer esses padrões e conversar com eles. Talvez você se identifique com algum destes:</p>
+
+          <div style="display:flex;flex-wrap:wrap;gap:20px">
+            <sc-for list="{{dores}}" as="d" hint-placeholder-count="4">
+              <div
+                style="flex:1 1 440px;min-width:0;background:#FFFFFF;border:1px solid #DDDFEA;border-radius:14px;padding:24px 28px;box-sizing:border-box">
+                <div
+                  style="font-family:'Playfair Display',Georgia,serif;font-size:22px;line-height:1.3;margin-bottom:6px">
+                  {{d.titulo}}</div>
+                <div style="font-size:17px;color:#4A4F73">{{d.texto}}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <p style="margin:40px 0 0;max-width:760px;font-size:18px">Esses padrões não indicam falha pessoal. São
+            histórias e experiências que pedem consciência e reorganização, e é isso que vamos fazer juntos.</p>
+          <p style="margin:16px 0 0;max-width:760px;font-size:16px;color:#4A4F73">Este não é um encontro de dicas de
+            investimento nem de promessas de enriquecimento. É um espaço de desenvolvimento humano para repensar a sua
+            relação com o dinheiro.</p>
+        </div>
+      </section>
+
+      <!-- PROGRAMA -->
+      <section style="background:#1B1F44;color:#FFFFFF">
+        <div style="max-width:1120px;margin:0 auto;padding:clamp(64px,12vw,96px) clamp(18px,5vw,24px);box-sizing:border-box">
+          <div
+            style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#E3C98F;margin-bottom:12px">
+            O que vamos viver</div>
+          <h2
+            style="margin:0 0 20px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15;max-width:760px">
+            Teoria, dinâmicas e expressão criativa em um só encontro</h2>
+          <p style="margin:0 0 48px;max-width:720px;color:#C9CCE3">Um percurso que parte da sua própria história e
+            termina em escolhas concretas para o seu dia a dia.</p>
+
+          <div style="display:flex;flex-wrap:wrap;gap:20px">
+            <sc-for list="{{modulos}}" as="m" hint-placeholder-count="7">
+              <div
+                style="flex:1 1 320px;min-width:0;background:#252A58;border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:clamp(22px,5vw,28px);box-sizing:border-box">
+                <div
+                  style="font-family:'Playfair Display',Georgia,serif;font-size:36px;line-height:1;color:#E3C98F;margin-bottom:14px">
+                  {{m.num}}</div>
+                <div
+                  style="font-family:'Playfair Display',Georgia,serif;font-size:22px;line-height:1.3;margin-bottom:8px">
+                  {{m.titulo}}</div>
+                <div style="font-size:16px;color:#C9CCE3">{{m.texto}}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMATO -->
+      <section style="background:#FFFFFF">
+        <div style="max-width:1120px;margin:0 auto;padding:clamp(64px,12vw,96px) clamp(18px,5vw,24px);box-sizing:border-box">
+          <div style="display:flex;flex-wrap:wrap;gap:clamp(32px,6vw,48px);align-items:flex-start">
+            <div style="flex:1 1 380px;min-width:0">
+              <div
+                style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#4A4F73;margin-bottom:12px">
+                O formato</div>
+              <h2
+                style="margin:0 0 20px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15">
+                Um grupo pequeno, para você se sentir à vontade</h2>
+              <p style="margin:0;color:#4A4F73">São apenas 15 vagas, de propósito. Em um encontro intimista há espaço
+                para tirar dúvidas sem medo e falar de dinheiro sem vergonha, no seu ritmo.</p>
+            </div>
+            <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px">
+              <sc-for list="{{formato}}" as="f" hint-placeholder-count="4">
+                <div
+                  style="display:flex;gap:16px;align-items:flex-start;padding:clamp(16px,4vw,20px) clamp(18px,4vw,24px);border:1px solid #DDDFEA;border-radius:14px;background:#F3F4F9">
+                  <div aria-hidden="true"
+                    style="flex:0 0 10px;height:10px;border-radius:50%;background:#1B1F44;margin-top:10px"></div>
+                  <div>
+                    <div style="font-weight:600;font-size:18px">{{f.titulo}}</div>
+                    <div style="font-size:16px;color:#4A4F73">{{f.texto}}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUEM CONDUZ -->
+      <section style="background:#F3F4F9">
+        <div style="max-width:1120px;margin:0 auto;padding:clamp(64px,12vw,96px) clamp(18px,5vw,24px);box-sizing:border-box">
+          <div style="display:flex;flex-wrap:wrap;gap:clamp(40px,7vw,56px);align-items:center">
+            <div style="flex:0 1 360px;min-width:0;width:100%;max-width:400px;margin:0 auto">
+              <img src="public/foto-profissional.jpeg" alt="Retrato profissional de Aldair Marti"
+                style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:16px;background:#E4E6F2;border:1px solid #DDDFEA;box-sizing:border-box">
+            </div>
+            <div style="flex:1 1 440px;min-width:0">
+              <div
+                style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#4A4F73;margin-bottom:12px">
+                Quem conduz</div>
+              <h2
+                style="margin:0 0 20px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15">
+                Aldair Marti</h2>
+              <p style="margin:0 0 16px">Há mais de 20 anos, Aldair facilita processos de mudança em pessoas e
+                organizações nas áreas relacionais, comportamentais e de consciência financeira, sempre com foco em
+                autonomia, assertividade e bem-estar sustentável.</p>
+              <p style="margin:0 0 28px;color:#4A4F73">Idealizadora do programa Cartografia Biográfica®, que une fazer
+                artístico, teoria dos setênios e Metodologia Biográfica como ferramentas de autoconhecimento e
+                transformação.</p>
+              <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:16px">
+                <sc-for list="{{credenciais}}" as="c" hint-placeholder-count="6">
+                  <li style="display:flex;gap:12px;align-items:flex-start"><span aria-hidden="true"
+                      style="flex:0 0 8px;height:8px;border-radius:50%;background:#1B1F44;margin-top:10px"></span><span>{{c}}</span>
+                  </li>
+                </sc-for>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEPOIMENTOS -->
+      <section style="background:#FFFFFF">
+        <div style="max-width:1120px;margin:0 auto;padding:clamp(64px,12vw,96px) clamp(18px,5vw,24px);box-sizing:border-box">
+          <div
+            style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#4A4F73;margin-bottom:12px">
+            Quem já participou</div>
+          <h2
+            style="margin:0 0 48px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15;max-width:760px">
+            O que dizem as participantes</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px;align-items:start">
+            <sc-for list="{{depoimentos}}" as="t" hint-placeholder-count="5">
+              <figure
+                style="margin:0;background:#F3F4F9;border:1px solid #DDDFEA;border-radius:14px;padding:clamp(22px,5vw,28px);box-sizing:border-box">
+                <div aria-hidden="true"
+                  style="font-family:'Playfair Display',Georgia,serif;font-size:56px;line-height:0.8;color:#1B1F44;margin-bottom:8px">
+                  “</div>
+                <blockquote style="margin:0 0 20px;font-size:16px;line-height:1.65;white-space:pre-line">{{t.texto}}
+                </blockquote>
+                <figcaption>
+                  <div style="font-weight:600;font-size:17px">{{t.nome}}</div>
+                  <div style="font-size:14px;color:#4A4F73">Avaliação no Google</div>
+                </figcaption>
+              </figure>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSCRIÇÃO -->
+      <section id="inscricao" style="background:#1B1F44;color:#FFFFFF">
+        <div style="max-width:1120px;margin:0 auto;padding:clamp(64px,12vw,96px) clamp(18px,5vw,24px);box-sizing:border-box">
+          <div style="display:flex;flex-wrap:wrap;gap:clamp(40px,7vw,56px);align-items:center">
+            <div style="flex:1 1 400px;min-width:0">
+              <div
+                style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#E3C98F;margin-bottom:12px">
+                Inscrição</div>
+              <h2
+                style="margin:0 0 20px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15">
+                Reserve sua vaga para 21 de novembro</h2>
+              <p style="margin:0 0 32px;color:#C9CCE3">A inscrição é simples e feita direto pelo WhatsApp:</p>
+              <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:18px">
+                <sc-for list="{{passos}}" as="p" hint-placeholder-count="3">
+                  <li style="display:flex;gap:16px;align-items:flex-start">
+                    <span
+                      style="flex:0 0 40px;height:40px;border-radius:50%;border:1px solid #E3C98F;color:#E3C98F;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-size:20px">{{p.num}}</span>
+                    <span style="padding-top:6px;font-size:17px">{{p.texto}}</span>
+                  </li>
+                </sc-for>
+              </ol>
+            </div>
+
+            <div
+              style="flex:0 1 420px;min-width:0;width:100%;background:#F3F4F9;color:#1B1F44;border-radius:20px;padding:clamp(24px,6vw,36px);box-sizing:border-box;text-align:center">
+              <div style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#4A4F73">
+                Investimento</div>
+              <div style="font-family:'Playfair Display',Georgia,serif;font-size:72px;line-height:1.1;margin:8px 0 4px">
+                R$ 97</div>
+              <div style="font-size:16px;color:#4A4F73;margin-bottom:28px">Pagamento via Pix</div>
+
+              <div style="font-weight:600;font-size:18px;margin-bottom:28px">Restam 15 vagas</div>
+
+              <a class="cta" href="{{whatsappUrl}}"
+                style="display:flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;border-radius:999px;background:#E3C98F;color:#1B1F44;text-decoration:none;font-weight:600;font-size:18px">Quero
+                garantir minha vaga</a>
+              <div style="font-size:14px;color:#4A4F73;margin-top:14px">Você será direcionada ao WhatsApp para concluir
+                a inscrição.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section style="background:#F3F4F9">
+        <div style="max-width:820px;margin:0 auto;padding:clamp(64px,12vw,96px) clamp(18px,5vw,24px);box-sizing:border-box">
+          <div
+            style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#4A4F73;margin-bottom:12px">
+            Dúvidas frequentes</div>
+          <h2
+            style="margin:0 0 40px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15">
+            Antes de decidir</h2>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{faq}}" as="q" hint-placeholder-count="6">
+              <details style="background:#FFFFFF;border:1px solid #DDDFEA;border-radius:14px;padding:0 clamp(18px,4vw,24px)">
+                <summary
+                  style="display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;font-weight:500;font-size:18px">
+                  <span>{{q.pergunta}}</span>
+                  <svg class="faq-plus" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="#1B1F44" stroke-width="1.8" stroke-linecap="round" style="flex:0 0 20px">
+                    <path d="M12 5v14M5 12h14"></path>
+                  </svg>
+                </summary>
+                <div style="padding:0 0 22px;font-size:17px;color:#4A4F73">{{q.resposta}}</div>
+              </details>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section style="background:#1B1F44;color:#FFFFFF">
+        <div style="max-width:820px;margin:0 auto;padding:clamp(64px,11vw,88px) clamp(18px,5vw,24px);box-sizing:border-box;text-align:center">
+          <h2
+            style="margin:0 0 16px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.6vw,52px);line-height:1.15">
+            Que o dinheiro seja bem-vindo na sua vida</h2>
+          <p style="margin:0 0 32px;font-size:18px;color:#C9CCE3">Prosperidade é um caminho construído no cotidiano,
+            passo a passo. Venha dar o primeiro, com um grupo pequeno e acolhedor.</p>
+          <a class="cta cta-lg" href="{{whatsappUrl}}"
+            style="display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:999px;background:#E3C98F;color:#1B1F44;text-decoration:none;font-weight:600;font-size:18px">Quero
+            garantir minha vaga</a>
+        </div>
+      </section>
+
+      <footer style="background:#141735;color:#C9CCE3">
+        <div
+          style="max-width:1120px;margin:0 auto;padding:32px clamp(18px,5vw,24px);box-sizing:border-box;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;font-size:14px">
+          <div><span style="font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#FFFFFF">Aldair
+              Marti</span> · desenvolvimento humano</div>
+          <div>Dinheiro Bem-Vindo · Prosperidade começa na identidade.</div>
+        </div>
+      </footer>
+
+    </div>
+  </x-dc>
+  <script type="text/x-dc" data-dc-script
+    data-props='{"whatsappUrl":{"editor":"text","default":"https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1!%20Quero%20me%20inscrever%20no%20workshop%20Dinheiro%20Bem-Vindo%20de%2021%2F11.","section":"Inscrição"},"$preview":{"width":1280,"height":6200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      whatsappUrl: this.props.whatsappUrl ?? 'https://wa.me/55XXXXXXXXXXX',
+      dores: [
+        { titulo: 'Dificuldade de planejar', texto: 'Você sabe que precisa se organizar, mas o dinheiro some antes de virar plano.' },
+        { titulo: 'Vergonha de falar sobre dinheiro', texto: 'Conversar sobre ganhos, dívidas ou valor do seu trabalho traz desconforto ou medo.' },
+        { titulo: 'Culpar fatores externos', texto: 'É mais fácil apontar o governo, o salário ou a família do que olhar para o próprio padrão.' },
+        { titulo: 'Autossabotagem diante de oportunidades', texto: 'Quando algo bom aparece, algo em você recua, adia ou complica.' }
+      ],
+      modulos: [
+        { num: '01', titulo: 'O dinheiro como relação', texto: 'Como você aprendeu a se relacionar com o dinheiro e quais memórias e significados moldam o jeito de ganhar, gastar, poupar e sustentar.' },
+        { num: '02', titulo: 'Cartografia biográfica', texto: 'A dinâmica da Linha da Vida Financeira: um mapa da sua história com o dinheiro, da infância ao presente.' },
+        { num: '03', titulo: 'O cérebro, a segurança e o dinheiro', texto: 'Por que o medo, a aversão à perda e a necessidade de pertencimento guiam tantas escolhas no automático.' },
+        { num: '04', titulo: 'Arteterapia e expressão', texto: 'Uma representação criativa, por desenho ou formas, para acessar o que as palavras não alcançam.' },
+        { num: '05', titulo: 'Bloqueios e padrões que se repetem', texto: 'Reconhecer o que se repete, sem culpa, para abrir espaço a uma reorganização.' },
+        { num: '06', titulo: 'Prosperidade e dinheiro em movimento', texto: 'Um conceito mais amplo de prosperidade e o dinheiro como energia que precisa circular.' },
+        { num: '07', titulo: 'Plano de (cri)ação consciente', texto: 'Estrutura simples para conhecer sua renda, separar gastos, definir metas realistas e começar a investir do jeito possível.' }
+      ],
+      formato: [
+        { titulo: 'Ao vivo, em sala privada no Zoom', texto: 'Sábado, 21 de novembro de 2026.' },
+        { titulo: '4 horas de encontro', texto: 'Das 9h às 13h, no horário de Brasília.' },
+        { titulo: 'Até 15 participantes', texto: 'Grupo intimista, com espaço para dúvidas e partilha.' },
+        { titulo: 'Teoria e vivências práticas', texto: 'Dinâmicas de reflexão e expressão criativa, conduzidas por Aldair.' }
+      ],
+      credenciais: [
+        'Analista de Riscos Psicossociais',
+        'Formação em Arteterapia Junguiana',
+        'Pintura Terapêutica Antroposófica',
+        'Aconselhamento Biográfico',
+        'Coaching (Adigo Consultoria)',
+        'Pós-graduação em Psicopedagogia e Abordagem Transdisciplinar'
+      ],
+      depoimentos: [
+        { nome: 'Thai Cavalcanti', texto: `O Wokshop com Aldair Marti é uma experiência valiosa e inesquecível.\nO carinho e respeito que ela demonstra durante a instrução são realmente acolhedores e fazem toda a diferença na aprendizagem! É um alívio e uma grande satisfação poder participar de um evento sério, profundo e transformador como este, num mundo onde diversas vezes nos frustramos com serviços rasos.\nRecomendo que todos façam!!` },
+        { nome: 'Victoria Valentina Simkin', texto: `O "Dinheiro Bem-vindo" foi um workshop que mudou muito a minha percepção sobre o dinheiro desde o nome. Dinheiro bem-vindo?! Eu não costumava me dar conta de com qual ânimo eu recebia o dinheiro. A forma como somos recebidos nos faz permanecer ou fugir de um lugar.\nDurante o workshop consegui identificar alguns padrões, emoções e crenças que impactavam minha prosperidade. A condução e as propostas de exercícios foram super assertivas.\nAgradeço pela oportunidade e todos os aprendizados! Desejo que outros muitos passam ter o prazer de acessar esses conhecimentos e vivências. Grande abraço!` },
+        { nome: 'Lilian Rodrigues Azevedo', texto: `Excelente profissional! Ser humano fantástico e com muitas habilidades! Amo estar com ela nesse ambiente maravilhoso e super acolhedor! Minha experiência com o work shop Dinheiro seja bem vindo, foi revolucionária e me fez entender muito sobre minhas crenças limitantes, para que eu pudesse mudá-las. Vale muito a pena para que essa reflexão mexa de verdade sua vida toda. Super recomendo!` },
+        { nome: 'Flavia Adissi', texto: `Aldair é uma profissional competente, séria e comprometida. Fiz o workshop “Dinheiro Bem-Vindo” que foi conduzido por ela de forma muito assertiva e com teoria e dinâmicas diferenciadas. Sua técnica e longa experiência me desafiaram a repensar muitos conceitos desse tema indispensável para todos nós!` },
+        { nome: 'Fernanda Soares', texto: `Participei do Workshop Dinheiro Bem-Vindo, foi um momento de muito aprendizado e partilha. Aldair conduziu com muita empatia e sabedoria todos os momentos. Agregou muito na minha vida! Super recomendo!` }
+      ],
+      passos: [
+        { num: '1', texto: 'Clique em “Quero garantir minha vaga” e fale com a gente pelo WhatsApp.' },
+        { num: '2', texto: 'Faça o Pix de R$ 97 para confirmar a sua inscrição.' },
+        { num: '3', texto: 'Pronto: sua vaga está reservada para o dia 21 de novembro, das 9h às 13h.' }
+      ],
+      faq: [
+        { pergunta: 'Preciso entender de finanças para participar?', resposta: 'Não. O foco é a sua relação com o dinheiro: histórias, emoções, crenças e escolhas. Você não precisa dominar planilhas nem termos técnicos.' },
+        { pergunta: 'Vou aprender a investir?', resposta: 'Investir aparece no encontro como um tema de consciência e constância, não como indicação de produtos ou promessa de resultado financeiro. O objetivo é fortalecer a sua relação com o dinheiro para que as suas escolhas sejam mais alinhadas.' },
+        { pergunta: 'Preciso saber desenhar?', resposta: 'De jeito nenhum. A dinâmica criativa pode ser feita com desenho ou formas, e não exige nenhuma habilidade artística.' },
+        { pergunta: 'É terapia?', resposta: 'É um workshop de desenvolvimento humano, com exercícios de reflexão e expressão criativa em grupo pequeno. Não substitui acompanhamento psicológico.' },
+        { pergunta: 'Por que apenas 15 vagas?', resposta: 'Para o encontro ser intimista e acolhedor, com espaço para tirar dúvidas sem medo e partilhar no seu tempo.' },
+        { pergunta: 'Como faço a inscrição?', resposta: 'Pelo botão “Quero garantir minha vaga”, que leva você ao WhatsApp para finalizar a inscrição. O pagamento é de R$ 97 via Pix.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+
+</html>
