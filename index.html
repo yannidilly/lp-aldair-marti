@@ -47,6 +47,25 @@
           transform: rotate(45deg)
         }
 
+        a.formato-cta-desktop {
+          display: inline-flex
+        }
+
+        a.formato-cta-mobile {
+          display: none
+        }
+
+        /* abaixo de 856px as colunas da seção "O formato" empilham */
+        @media (max-width: 855px) {
+          a.formato-cta-desktop {
+            display: none
+          }
+
+          a.formato-cta-mobile {
+            display: inline-flex
+          }
+        }
+
         @media (max-width: 480px) {
           a.cta-lg {
             width: 100%;
@@ -76,7 +95,7 @@
             <div style="flex:1 1 480px;min-width:0">
               <div
                 style="display:inline-block;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#E3C98F;font-weight:500;margin-bottom:20px">
-                Workshop ao vivo · 21 de novembro</div>
+                Workshop ao vivo · 28 de novembro</div>
               <h1
                 style="margin:0 0 20px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(44px,7vw,84px);line-height:1.04">
                 Dinheiro <span style="white-space:nowrap">Bem-Vindo</span></h1>
@@ -92,7 +111,7 @@
                     <rect x="3.5" y="5" width="17" height="15" rx="2"></rect>
                     <path d="M3.5 10h17M8 3v4M16 3v4"></path>
                   </svg>
-                  <span>Sábado, 21/11/2026</span>
+                  <span>Sábado, 28/11/2026</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:10px">
                   <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3C98F"
@@ -120,11 +139,22 @@
                 </div>
               </div>
 
+              <div role="note"
+                style="display:flex;gap:12px;align-items:flex-start;max-width:560px;margin:-16px 0 40px;padding:14px 18px;border:1px solid rgba(227,201,143,0.5);border-radius:14px;background:rgba(227,201,143,0.08);font-size:16px;color:#FFFFFF">
+                <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3C98F"
+                  stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 22px;margin-top:1px">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 7.5v5.5M12 16.5v.01"></path>
+                </svg>
+                <span><strong style="font-weight:600;color:#E3C98F">Atenção:</strong> o workshop não ficará gravado. A
+                  sua presença ao vivo é necessária.</span>
+              </div>
+
               <div style="display:flex;flex-wrap:wrap;gap:20px 28px;align-items:center">
                 <a class="cta cta-lg" href="{{whatsappUrl}}"
                   style="display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:999px;background:#E3C98F;color:#1B1F44;text-decoration:none;font-weight:600;font-size:18px">Quero
                   garantir minha vaga</a>
-                <div style="font-size:16px;color:#C9CCE3">Investimento de <strong
+                <div style="font-size:16px;color:#C9CCE3">De <s>R$ 297</s> por <strong
                     style="color:#FFFFFF;font-weight:600">R$ 97</strong><br>Inscrição finalizada pelo WhatsApp</div>
               </div>
             </div>
@@ -182,6 +212,41 @@
         </div>
       </section>
 
+      <!-- DEPOIMENTOS -->
+      <section style="background:#FFFFFF">
+        <div
+          style="max-width:1120px;margin:0 auto;padding:clamp(64px,12vw,96px) clamp(18px,5vw,24px);box-sizing:border-box">
+          <div
+            style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#4A4F73;margin-bottom:12px">
+            Quem já participou</div>
+          <h2
+            style="margin:0 0 48px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15;max-width:760px">
+            O que dizem as participantes</h2>
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px;align-items:start">
+            <sc-for list="{{depoimentos}}" as="t" hint-placeholder-count="5">
+              <figure
+                style="margin:0;background:#F3F4F9;border:1px solid #DDDFEA;border-radius:14px;padding:clamp(22px,5vw,28px);box-sizing:border-box">
+                <div aria-hidden="true"
+                  style="font-family:'Playfair Display',Georgia,serif;font-size:56px;line-height:0.8;color:#1B1F44;margin-bottom:8px">
+                  “</div>
+                <blockquote style="margin:0 0 20px;font-size:16px;line-height:1.65;white-space:pre-line">{{t.texto}}
+                </blockquote>
+                <figcaption>
+                  <div style="font-weight:600;font-size:17px">{{t.nome}}</div>
+                  <div style="font-size:14px;color:#4A4F73">Avaliação no Google</div>
+                </figcaption>
+              </figure>
+            </sc-for>
+          </div>
+          <div style="margin-top:48px;text-align:center">
+            <a class="cta cta-lg" href="{{whatsappUrl}}"
+              style="display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:999px;background:#1B1F44;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:18px">Quero
+              garantir minha vaga</a>
+          </div>
+        </div>
+      </section>
+
       <!-- PROGRAMA -->
       <section style="background:#1B1F44;color:#FFFFFF">
         <div
@@ -226,9 +291,12 @@
                 Um grupo pequeno, para você se sentir à vontade</h2>
               <p style="margin:0;color:#4A4F73">São apenas 15 vagas, de propósito. Em um encontro intimista há espaço
                 para tirar dúvidas sem medo e falar de dinheiro sem vergonha, no seu ritmo.</p>
+              <a class="cta cta-lg formato-cta-desktop" href="{{whatsappUrl}}"
+                style="align-items:center;justify-content:center;min-height:56px;margin-top:32px;padding:0 32px;border-radius:999px;background:#1B1F44;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:18px">Quero
+                garantir minha vaga</a>
             </div>
             <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px">
-              <sc-for list="{{formato}}" as="f" hint-placeholder-count="4">
+              <sc-for list="{{formato}}" as="f" hint-placeholder-count="5">
                 <div
                   style="display:flex;gap:16px;align-items:flex-start;padding:clamp(16px,4vw,20px) clamp(18px,4vw,24px);border:1px solid #DDDFEA;border-radius:14px;background:#F3F4F9">
                   <div aria-hidden="true"
@@ -239,6 +307,9 @@
                   </div>
                 </div>
               </sc-for>
+              <a class="cta cta-lg formato-cta-mobile" href="{{whatsappUrl}}"
+                style="align-self:flex-start;align-items:center;justify-content:center;min-height:56px;margin-top:16px;padding:0 32px;border-radius:999px;background:#1B1F44;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:18px">Quero
+                garantir minha vaga</a>
             </div>
           </div>
         </div>
@@ -278,36 +349,6 @@
         </div>
       </section>
 
-      <!-- DEPOIMENTOS -->
-      <section style="background:#FFFFFF">
-        <div
-          style="max-width:1120px;margin:0 auto;padding:clamp(64px,12vw,96px) clamp(18px,5vw,24px);box-sizing:border-box">
-          <div
-            style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#4A4F73;margin-bottom:12px">
-            Quem já participou</div>
-          <h2
-            style="margin:0 0 48px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15;max-width:760px">
-            O que dizem as participantes</h2>
-          <div
-            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px;align-items:start">
-            <sc-for list="{{depoimentos}}" as="t" hint-placeholder-count="5">
-              <figure
-                style="margin:0;background:#F3F4F9;border:1px solid #DDDFEA;border-radius:14px;padding:clamp(22px,5vw,28px);box-sizing:border-box">
-                <div aria-hidden="true"
-                  style="font-family:'Playfair Display',Georgia,serif;font-size:56px;line-height:0.8;color:#1B1F44;margin-bottom:8px">
-                  “</div>
-                <blockquote style="margin:0 0 20px;font-size:16px;line-height:1.65;white-space:pre-line">{{t.texto}}
-                </blockquote>
-                <figcaption>
-                  <div style="font-weight:600;font-size:17px">{{t.nome}}</div>
-                  <div style="font-size:14px;color:#4A4F73">Avaliação no Google</div>
-                </figcaption>
-              </figure>
-            </sc-for>
-          </div>
-        </div>
-      </section>
-
       <!-- INSCRIÇÃO -->
       <section id="inscricao" style="background:#1B1F44;color:#FFFFFF">
         <div
@@ -319,7 +360,7 @@
                 Inscrição</div>
               <h2
                 style="margin:0 0 20px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15">
-                Reserve sua vaga para 21 de novembro</h2>
+                Reserve sua vaga para 28 de novembro</h2>
               <p style="margin:0 0 32px;color:#C9CCE3">A inscrição é simples e feita direto pelo WhatsApp:</p>
               <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:18px">
                 <sc-for list="{{passos}}" as="p" hint-placeholder-count="3">
@@ -336,11 +377,14 @@
               style="flex:0 1 420px;min-width:0;width:100%;background:#F3F4F9;color:#1B1F44;border-radius:20px;padding:clamp(24px,6vw,36px);box-sizing:border-box;text-align:center">
               <div style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#4A4F73">
                 Investimento</div>
-              <div style="font-family:'Playfair Display',Georgia,serif;font-size:72px;line-height:1.1;margin:8px 0 4px">
+              <div style="font-size:18px;color:#4A4F73;margin-top:12px">De <s>R$ 297</s> por</div>
+              <div style="font-family:'Playfair Display',Georgia,serif;font-size:72px;line-height:1.1;margin:0 0 4px">
                 R$ 97</div>
               <div style="font-size:16px;color:#4A4F73;margin-bottom:28px">Pagamento via Pix</div>
 
-              <div style="font-weight:600;font-size:18px;margin-bottom:28px">Restam 15 vagas</div>
+              <div style="font-weight:600;font-size:18px;margin-bottom:12px">Restam 15 vagas</div>
+              <div style="font-size:15px;color:#4A4F73;margin-bottom:28px">O workshop não ficará gravado: a presença ao
+                vivo é necessária.</div>
 
               <a class="cta" href="{{whatsappUrl}}"
                 style="display:flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;border-radius:999px;background:#E3C98F;color:#1B1F44;text-decoration:none;font-weight:600;font-size:18px">Quero
@@ -363,7 +407,7 @@
             style="margin:0 0 40px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.15">
             Antes de decidir</h2>
           <div style="display:flex;flex-direction:column;gap:12px">
-            <sc-for list="{{faq}}" as="q" hint-placeholder-count="6">
+            <sc-for list="{{faq}}" as="q" hint-placeholder-count="7">
               <details
                 style="background:#FFFFFF;border:1px solid #DDDFEA;border-radius:14px;padding:0 clamp(18px,4vw,24px)">
                 <summary
@@ -408,7 +452,7 @@
     </div>
   </x-dc>
   <script type="text/x-dc" data-dc-script
-    data-props='{"whatsappUrl":{"editor":"text","default":"https://wa.me/5521988703219?text=Ol%C3%A1!%20Quero%20me%20inscrever%20no%20workshop%20Dinheiro%20Bem-Vindo%20de%2021%2F11.","section":"Inscrição"},"$preview":{"width":1280,"height":6200}}'>
+    data-props='{"whatsappUrl":{"editor":"text","default":"https://wa.me/5521988703219?text=Ol%C3%A1!%20Quero%20me%20inscrever%20no%20workshop%20Dinheiro%20Bem-Vindo%20de%2028%2F11.","section":"Inscrição"},"$preview":{"width":1280,"height":6200}}'>
 class Component extends DCLogic {
   renderVals() {
     return {
@@ -429,8 +473,9 @@ class Component extends DCLogic {
         { num: '07', titulo: 'Plano de (cri)ação consciente', texto: 'Estrutura simples para conhecer sua renda, separar gastos, definir metas realistas e começar a investir do jeito possível.' }
       ],
       formato: [
-        { titulo: 'Ao vivo, em sala privada no Zoom', texto: 'Sábado, 21 de novembro de 2026.' },
+        { titulo: 'Ao vivo, em sala privada no Zoom', texto: 'Sábado, 28 de novembro de 2026.' },
         { titulo: '4 horas de encontro', texto: 'Das 9h às 13h, no horário de Brasília.' },
+        { titulo: 'Sem gravação', texto: 'O encontro não ficará gravado, por isso a sua presença ao vivo é necessária.' },
         { titulo: 'Até 15 participantes', texto: 'Grupo intimista, com espaço para dúvidas e partilha.' },
         { titulo: 'Teoria e vivências práticas', texto: 'Dinâmicas de reflexão e expressão criativa, conduzidas por Aldair.' }
       ],
@@ -452,13 +497,14 @@ class Component extends DCLogic {
       passos: [
         { num: '1', texto: 'Clique em “Quero garantir minha vaga” e fale com a gente pelo WhatsApp.' },
         { num: '2', texto: 'Faça o Pix de R$ 97 para confirmar a sua inscrição.' },
-        { num: '3', texto: 'Pronto: sua vaga está reservada para o dia 21 de novembro, das 9h às 13h.' }
+        { num: '3', texto: 'Pronto: sua vaga está reservada para o dia 28 de novembro, das 9h às 13h.' }
       ],
       faq: [
         { pergunta: 'Preciso entender de finanças para participar?', resposta: 'Não. O foco é a sua relação com o dinheiro: histórias, emoções, crenças e escolhas. Você não precisa dominar planilhas nem termos técnicos.' },
         { pergunta: 'Vou aprender a investir?', resposta: 'Investir aparece no encontro como um tema de consciência e constância, não como indicação de produtos ou promessa de resultado financeiro. O objetivo é fortalecer a sua relação com o dinheiro para que as suas escolhas sejam mais alinhadas.' },
         { pergunta: 'Preciso saber desenhar?', resposta: 'De jeito nenhum. A dinâmica criativa pode ser feita com desenho ou formas, e não exige nenhuma habilidade artística.' },
         { pergunta: 'É terapia?', resposta: 'É um workshop de desenvolvimento humano, com exercícios de reflexão e expressão criativa em grupo pequeno. Não substitui acompanhamento psicológico.' },
+        { pergunta: 'O workshop ficará gravado?', resposta: 'Não. O encontro acontece apenas ao vivo e não haverá gravação, então a sua presença no dia 28 de novembro, das 9h às 13h, é necessária.' },
         { pergunta: 'Por que apenas 15 vagas?', resposta: 'Para o encontro ser intimista e acolhedor, com espaço para tirar dúvidas sem medo e partilhar no seu tempo.' },
         { pergunta: 'Como faço a inscrição?', resposta: 'Pelo botão “Quero garantir minha vaga”, que leva você ao WhatsApp para finalizar a inscrição. O pagamento é de R$ 97 via Pix.' }
       ]
