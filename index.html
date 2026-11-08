@@ -152,7 +152,7 @@
               </div>
 
               <div style="display:flex;flex-wrap:wrap;gap:20px 28px;align-items:center">
-                <a class="cta cta-lg" href="{{whatsappUrl}}" data-cta="hero"
+                <a class="cta cta-lg" href="{{whatsappUrl}}" data-cta="hero" target="_blank" rel="noopener"
                   style="display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:999px;background:#E3C98F;color:#1B1F44;text-decoration:none;font-weight:600;font-size:18px">Quero
                   garantir minha vaga</a>
                 <div style="font-size:16px;color:#C9CCE3"><span style="color:#E3C98F;font-weight:600">1º lote:</span> de <s>R$ 297</s> por <strong
@@ -241,7 +241,7 @@
             </sc-for>
           </div>
           <div style="margin-top:48px;text-align:center">
-            <a class="cta cta-lg" href="{{whatsappUrl}}" data-cta="depoimentos"
+            <a class="cta cta-lg" href="{{whatsappUrl}}" data-cta="depoimentos" target="_blank" rel="noopener"
               style="display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:999px;background:#1B1F44;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:18px">Quero
               garantir minha vaga</a>
           </div>
@@ -292,7 +292,7 @@
                 Um grupo pequeno, para você se sentir à vontade</h2>
               <p style="margin:0;color:#4A4F73">São apenas 15 vagas, de propósito. Em um encontro intimista há espaço
                 para tirar dúvidas sem medo e falar de dinheiro sem vergonha, no seu ritmo.</p>
-              <a class="cta cta-lg formato-cta-desktop" href="{{whatsappUrl}}" data-cta="formato-desktop"
+              <a class="cta cta-lg formato-cta-desktop" href="{{whatsappUrl}}" data-cta="formato-desktop" target="_blank" rel="noopener"
                 style="align-items:center;justify-content:center;min-height:56px;margin-top:32px;padding:0 32px;border-radius:999px;background:#1B1F44;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:18px">Quero
                 garantir minha vaga</a>
             </div>
@@ -308,7 +308,7 @@
                   </div>
                 </div>
               </sc-for>
-              <a class="cta cta-lg formato-cta-mobile" href="{{whatsappUrl}}" data-cta="formato-mobile"
+              <a class="cta cta-lg formato-cta-mobile" href="{{whatsappUrl}}" data-cta="formato-mobile" target="_blank" rel="noopener"
                 style="align-self:flex-start;align-items:center;justify-content:center;min-height:56px;margin-top:16px;padding:0 32px;border-radius:999px;background:#1B1F44;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:18px">Quero
                 garantir minha vaga</a>
             </div>
@@ -393,7 +393,7 @@
               <div style="font-size:15px;color:#4A4F73;margin-bottom:28px">O workshop não ficará gravado: a presença ao
                 vivo é necessária.</div>
 
-              <a class="cta" href="{{whatsappUrl}}" data-cta="inscricao"
+              <a class="cta" href="{{whatsappUrl}}" data-cta="inscricao" target="_blank" rel="noopener"
                 style="display:flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;border-radius:999px;background:#E3C98F;color:#1B1F44;text-decoration:none;font-weight:600;font-size:18px">Quero
                 garantir minha vaga</a>
               <div style="font-size:14px;color:#4A4F73;margin-top:14px">Você será direcionada ao WhatsApp para concluir
@@ -441,7 +441,7 @@
             Que o dinheiro seja bem-vindo na sua vida</h2>
           <p style="margin:0 0 32px;font-size:18px;color:#C9CCE3">Prosperidade é um caminho construído no cotidiano,
             passo a passo. Venha dar o primeiro, com um grupo pequeno e acolhedor.</p>
-          <a class="cta cta-lg" href="{{whatsappUrl}}" data-cta="cta-final"
+          <a class="cta cta-lg" href="{{whatsappUrl}}" data-cta="cta-final" target="_blank" rel="noopener"
             style="display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:999px;background:#E3C98F;color:#1B1F44;text-decoration:none;font-weight:600;font-size:18px">Quero
             garantir minha vaga</a>
         </div>
@@ -647,9 +647,7 @@ class Component extends DCLogic {
     (function () {
       var WA_SELECTOR = 'a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="web.whatsapp.com"], a[href^="whatsapp:"]';
       var DEBOUNCE_MS = 1500;
-      var REDIRECT_DELAY_MS = 150;
       var lastClick = typeof WeakMap === 'function' ? new WeakMap() : null;
-      var navigating = false;
 
       function ctaName(link) {
         var name = link.getAttribute('data-cta');
@@ -662,9 +660,6 @@ class Component extends DCLogic {
         var link = e.target && e.target.closest ? e.target.closest(WA_SELECTOR) : null;
         if (!link) return;
 
-        // Durante o atraso de redirecionamento, ignora novos cliques (evita navegação duplicada)
-        if (navigating) { e.preventDefault(); return; }
-
         // Ignora cliques repetidos no mesmo botão em menos de 1,5 s
         var now = Date.now();
         if (lastClick) {
@@ -676,26 +671,11 @@ class Component extends DCLogic {
         // Pixel ausente (sem consentimento ou bloqueador): segue o link normalmente
         if (typeof fbq !== 'function') return;
 
+        // Os links abrem em nova guia (target="_blank"): esta página continua aberta
+        // e o Pixel conclui o envio, então o navegador segue o link sem atraso.
         try {
           fbq('track', 'Contact', { content_name: ctaName(link) });
-        } catch (err) {
-          return;
-        }
-
-        // Mesma aba: atrasa ~150 ms para o evento sair antes de trocar de página.
-        // Nova aba / clique com modificador / botão do meio: o navegador cuida, nada a fazer.
-        var target = (link.getAttribute('target') || '').toLowerCase();
-        var opensElsewhere = (target && target !== '_self') || e.button !== 0 ||
-          e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.defaultPrevented;
-        if (opensElsewhere) return;
-
-        var href = link.href;
-        e.preventDefault();
-        navigating = true;
-        setTimeout(function () {
-          navigating = false;
-          window.location.href = href;
-        }, REDIRECT_DELAY_MS);
+        } catch (err) { }
       }, true);
     })();
   </script>
