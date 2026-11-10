@@ -521,7 +521,7 @@ class Component extends DCLogic {
 }
 </script>
 
-  <!-- Banner de cookies: Meta Pixel e Clarity só carregam após consentimento -->
+  <!-- Banner de cookies: Meta Pixel e Clarity carregam ao abrir a página; "Recusar" desativa o rastreio -->
   <style>
     #cookie-banner {
       position: fixed;
@@ -574,6 +574,11 @@ class Component extends DCLogic {
       color: #FFFFFF
     }
 
+    #cookie-decline {
+      background: transparent;
+      color: #1B1F44
+    }
+
     #cookie-banner button:hover {
       filter: brightness(1.07)
     }
@@ -586,13 +591,12 @@ class Component extends DCLogic {
   <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
     <p>Usamos cookies para melhorar sua experiência no site</p>
     <div class="cookie-actions">
+      <button type="button" id="cookie-decline">Recusar</button>
       <button type="button" id="cookie-accept">Aceitar</button>
     </div>
   </div>
   <script>
     (function () {
-      var KEY = 'cookie-consent';
-
       function loadTrackers() {
         // Meta Pixel Code
         !function (f, b, e, v, n, t, s) {
@@ -618,26 +622,38 @@ class Component extends DCLogic {
         })(window, document, "clarity", "script", "z9kxp0q01t");
       }
 
-      function getConsent() {
-        try { return localStorage.getItem(KEY); } catch (e) { return null; }
+      function grantTracking() {
+        if (typeof fbq === 'function') fbq('consent', 'grant');
+        if (typeof clarity === 'function') {
+          clarity('consentv2', { ad_Storage: 'granted', analytics_Storage: 'granted' });
+        }
       }
-      function setConsent(value) {
-        try { localStorage.setItem(KEY, value); } catch (e) { }
+
+      function revokeTracking() {
+        // Meta: o Pixel para de enviar eventos (inclusive o "Contact" dos botões)
+        if (typeof fbq === 'function') fbq('consent', 'revoke');
+        // Clarity: nega o consentimento (apaga os cookies) e encerra a gravação da sessão
+        if (typeof clarity === 'function') {
+          clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+          clarity('stop');
+        }
       }
 
       var banner = document.getElementById('cookie-banner');
-      var consent = getConsent();
 
-      if (consent === 'granted') {
-        loadTrackers();
-      } else {
-        banner.hidden = false;
-      }
+      // Os scripts carregam ao abrir a página e o banner aparece em todo acesso
+      // (nenhuma escolha é armazenada no navegador)
+      loadTrackers();
+      banner.hidden = false;
 
       document.getElementById('cookie-accept').addEventListener('click', function () {
-        setConsent('granted');
         banner.hidden = true;
-        loadTrackers();
+        grantTracking();
+      });
+
+      document.getElementById('cookie-decline').addEventListener('click', function () {
+        banner.hidden = true;
+        revokeTracking();
       });
     })();
   </script>
@@ -668,7 +684,7 @@ class Component extends DCLogic {
           if (prev && now - prev < DEBOUNCE_MS) return;
         }
 
-        // Pixel ausente (sem consentimento ou bloqueador): segue o link normalmente
+        // Pixel ausente (bloqueador de anúncios): segue o link normalmente
         if (typeof fbq !== 'function') return;
 
         // Os links abrem em nova guia (target="_blank"): esta página continua aberta
