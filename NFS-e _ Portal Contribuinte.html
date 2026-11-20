@@ -1,0 +1,320 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NFS-e | Portal Contribuinte</title>
+    <!--link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet"-->
+    <link href="/EmissorNacional/Content/Base?v=pFIejuQkAjItMBe9kttgsOupDt-4ovzYElQSv4EZf-c1" rel="stylesheet"/>
+
+    
+
+    <script type="text/javascript">
+        window.UrlBase = "https://www.nfse.gov.br/emissornacional/";
+        window.UrlRest = "https://restnfseprod.srv.cd.serpro";
+        window.sessionStorage.setItem("accessToken", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRobWV0aG9kIjoiU0VOSEEiLCJ1bmlxdWVfbmFtZSI6IllBTk5JIEFCUklUVEEgQlJJVE8gRElMTFkiLCJpbnNjcmljYW8iOiIxMzY0NDU0NjYxNCIsInRpcG9faW5zY3JpY2FvIjoiQ1BGIiwibm9tZSI6IllBTk5JIEFCUklUVEEgQlJJVE8gRElMTFkiLCJyb2xlIjoiQ09OVFJJQlVJTlRFIiwibmJmIjoxNzk0NjI5NDUzLCJleHAiOjE3OTQ3MTk0NTMsImlhdCI6MTc5NDYyOTQ1MywiaXNzIjoiaHR0cDovL3d3dy5zZXJwcm8uZ292LmJyIn0.A3s1O8lf0JAA-pYOdZ-H3MMBgnNdhJlwziaZwA0jovc");
+        window.sessionTimeout = 1200;
+        window.sessionTimeoutAtivo = null;
+    </script>
+    <script src="/EmissorNacional/Scripts/Base?v=XuZeTG-Ea0QBTOkvxaTAV3wo-T1VP4wO9eoDGL4uH2U1"></script>
+
+    
+    <script src="/EmissorNacional/Areas/Notas/Scripts/Emitidas.js?v=8df36dbcf169080"></script>
+    <script src="/EmissorNacional/Areas/DPS/Scripts/AssinadorSerpro.js?v=8df36dbccb43680"></script>
+    <script src="/EmissorNacional/Areas/Notas/Scripts/AssinaturaPedRegEventoBase.js?v=8df36dbcf169080"></script>
+    <script src="/EmissorNacional/Areas/Notas/Scripts/AssinaturaPedRegEventoCancelamento.js?v=8df36dbcf169080"></script>
+
+</head>
+<body>
+    <nav class="navbar navbarMini navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                    <a href="/EmissorNacional/"><img src="/EmissorNacional/img/logo-nfse-assinatura-horizontal.svg" alt="Logo NFS-e" /></a>
+                </div>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    Logado como: <span class="inscricao">136.445.466-14</span>
+                </li>
+                    <li>
+                        Representando: <span class="inscricao">37.418.826/0001-85</span>
+                    </li>
+                <li>
+                    <div class="timer pull-right"><span class="sessionTimeout">20:00</span></div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <button id="btnTopo" title="Rolar para o topo" onclick="ScrollToTop()"></button>
+    <a href="#main-content" class="skip-link">Ir para conteúdo</a>
+            <div class="pnlMarcadorAmbiente"><span style="display: block;height: 5px;"></span></div>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand completa">
+                    <a href="/EmissorNacional/"><img src="/EmissorNacional/img/logo-nfse-assinatura-horizontal.svg" alt="Logo NFS-e" /></a>
+                </div>
+                <div class="navbar-brand simples">
+                    <a href="/EmissorNacional/"><img src="/EmissorNacional/img/logo-header-simples.svg" alt="Logo NFS-e" /></a>
+                </div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/EmissorNacional/" data-toggle="tooltip" data-placement="bottom"
+                           title="Principal"><div><img src="/EmissorNacional/img/menu-home-35.svg" /></div><span class="nome-mobile">Página Principal</span></a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                           role="button" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                            <div><img src="/EmissorNacional/img/menu-nova-35.svg" /><span class="caret"></span></div><span class="nome-mobile">Nova NFS-e</span>
+                        </a>
+                        <ul class="dropdown-menu main-menu" style="right: -5px; margin-top: 5px;">
+                            <li class="dropdown-header titulo-menu">Tipos de emissão:</li>
+                            <li>
+                                <a href="/EmissorNacional/DPS/Pessoas">Emissão completa</a>
+                            </li>
+                            <li>
+                                <a href="/EmissorNacional/DPS/Simplificada">Emissão simplificada</a>
+                            </li>
+                            <li>
+                                <a href="/EmissorNacional/ByPass/Pessoas">Emissão por decisão administrativa/judicial</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                           role="button" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                            <div><img src="/EmissorNacional/img/menu-notas-35.svg" /><span class="caret"></span></div><span class="nome-mobile">Notas</span>
+                        </a>
+                        <ul class="dropdown-menu main-menu" style="right: -5px; margin-top: 5px;">
+                            <li class="dropdown-header titulo-menu">Consultas:</li>
+                            <li>
+                                <a href="/EmissorNacional/Notas/Emitidas">NFS-e Emitidas</a>
+                            </li>
+                            <li>
+                                <a href="/EmissorNacional/Notas/Recebidas">NFS-e Recebidas</a>
+                            </li>
+                            <li>
+                                <a href="/EmissorNacional/Notas/Rascunhos">Rascunhos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+
+                    <li class="divisor"></li>
+                    <li class="dropdown perfil">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                           role="button" aria-haspopup="true" aria-expanded="false" data-hover="dropdown" style="">
+
+                                <div>
+                                    <span class="nome">37.418.826 YANNI ABRITTA BRITO DILLY</span>
+                                    <span class="inscricao">
+                                        CNPJ: 
+                                        37.418.826/0001-85
+                                    </span>
+                                    <span class="procurador">Representado por: 136.445.466-14</span>
+                                    <span class="caret"></span>
+                                </div>
+
+                            <span class="nome-mobile">Perfil</span>
+                        </a>
+                        <ul class="dropdown-menu main-menu" style="right: 0px; margin-top: 0px;">
+                            <li class="dropdown-header titulo-menu">Meu perfil:</li>
+                            <li>
+                                <a id="btnModalProcuracoes" href="javascript:void(0);">Procuração/Representação</a>
+                            </li>
+                            <li>
+                                <a href="/EmissorNacional/Perfil/Configuracao">Configurações</a>
+                            </li>
+                            <li>
+                                <a href="/EmissorNacional/Perfil/ServicosFavoritos">Serviços Favoritos</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="/EmissorNacional/Login/Sair">Sair com segurança</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-default navbar-breadcrumbs">
+        <div class="container">
+            <div class="timer pull-right">Tempo restante da sessão: <span class="sessionTimeout">20:00</span></div>
+            <div class="breadcrumbs">
+    <span class="nome-sistema">
+        <a href="/EmissorNacional/">
+            <i class="fa fa-home"></i>Home
+        </a>
+    </span>
+                <span class="separador">::</span>
+
+    NFS-e
+            <span class="separador">::</span>
+
+    Emitidas
+</div>
+        </div>
+    </nav>
+
+    <div id="main-content" class="container container-fluid-xl container-body">
+        
+
+
+
+<div id="erroAssinatura" class="alert-danger alert" style="display:none"><span class="icone"></span><a class="close" href="javascript:void(0);"></a></div>
+
+
+<h2>Notas emitidas</h2>
+<div class="bd-callout bd-callout-info">
+    Ao entrar na tela de Notas emitidas são exibidas as notas fiscais emitidas nos últimos 30 dias. Para exibir as notas referentes a um outro período informe os campos data inicial e data final. Em seguida clique no botão filtrar.
+    O período informado não deve ser superior a 30 dias.
+</div>
+
+<div id="pnlComandos" class="navbar navbar-nfse">
+    <div class="navbar-collapse" id="searchbar">
+        <ul class="nav navbar-nav">
+            <li>
+                <a id="btnNovaNFSe" href="/EmissorNacional/DPS/Pessoas" class="btn btn-lg btn-primary">
+                    <img src="/EmissorNacional/img/btn-novo.svg" /><span>Nova NFS-e</span>
+                </a>
+            </li>
+            <li>
+                <a id="btnRecarregar" href="/EmissorNacional/Notas/Emitidas" class="btn btn-lg btn-info" data-toggle="tooltip" title="Recarregar">
+                    <img src="/EmissorNacional/img/btn-recarregar.svg" style="height: 21px;" /><span>Recarregar lista</span>
+                </a>
+            </li>
+        </ul>
+<form action="/EmissorNacional/Notas/Emitidas" class="navbar-form" method="get">            <div class="form-group" style="display:inline;">
+                <div class="input-group input-group-lg" style="display:table;">
+                    <input class="form-control" name="busca" placeholder="Pesquisar pessoa física ou jurídica" type="text">
+                    <span class="input-group-btn" style="width:1%;">
+                        <button id="btnPesquisar" class="btn btn-default" type="submit"><img src="/EmissorNacional/img/btn-pesquisar-esq.svg" alt="Pesquisar" /></button>
+                    </span>
+                </div>
+            </div>
+            <br />
+            <div style="display: flex; align-items: center; justify-content: flex-start;">
+                <div class="form-group form-group-lg" style="margin-right: 20px;">
+                    <label class="control-label"><span>Data Inicial</span></label>
+                    <div class="input-group input-group-lg"><input class="form-control data" id="datainicio" name="datainicio" type="text" value="01/10/2026" /><span class="input-group-btn"><button class="btn btn-lg btn-default btnCalendario" data-original-title="Abrir calendário" data-toggle="tooltip" id="btn_datainicio" type="button"><div class="btn-calendario"></div></button></span></div>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="datainicio" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group" style="display: flex; align-items: center; justify-content: flex-start; gap: 10px;">
+                    <div class="form-group form-group-lg">
+                        <label class="control-label"><span>Data Final</span></label>
+                        <div class="input-group input-group-lg"><input class="form-control data" id="datafim" name="datafim" type="text" value="31/10/2026" /><span class="input-group-btn"><button class="btn btn-lg btn-default btnCalendario" data-original-title="Abrir calendário" data-toggle="tooltip" id="btn_datafim" type="button"><div class="btn-calendario"></div></button></span></div>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="datafim" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group form-group-lg">
+                        <button type="submit" class="btn btn-lg btn-primary">
+                            <img src="/EmissorNacional/img/btn-filtrar.svg"/> Filtrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+</form>
+    </div>
+
+</div>
+    <span class="sem-registros">Nenhum registro encontrado</span>
+
+<div id="modalCancelamento" class="modal fade" tabindex="-1" role="dialog"></div>
+
+    </div>
+
+    <footer>
+        <div class="parceiros">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-2">
+                        <a href="http://idg.receita.fazenda.gov.br/" target="_blank">
+                            <img src="/EmissorNacional/img/logo-rfb.png" class="logo" alt="Receita Federal do Brasil">
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="http://www.sebrae.com.br/" target="_blank">
+                            <img src="/EmissorNacional/img/logo-sebrae.png" class="logo" alt="Sebrae">
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="http://www.cnm.org.br/" target="_blank">
+                            <img src="/EmissorNacional/img/logo-cnm.png" class="logo" alt="Confederação Nacional dos Municípios">
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="http://www.abrasf.org.br/" target="_blank">
+                            <img src="/EmissorNacional/img/logo-abrasf.png" class="logo" alt="Associação Brasileira das Secretarias de Finanças das Capitais">
+                        </a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="http://portal.siscomex.gov.br/legislacao/orgaos/secretaria-de-comercio-exterior-secex" target="_blank">
+                            <img src="/EmissorNacional/img/logo-secex.png" class="logo" alt="Secretaria de Comércio Exterior" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 logo">
+                        <img src="/EmissorNacional/img/logo-nfse-branca-sm.svg" class="logo-branca" alt="NFS-e" />
+                    </div>
+                    <div class="col-md-8 versao">
+                        Portal de Gestão NFS-e - Contribuinte | Versão 1.6.0.0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modalLoading" class="modalBgLoading" style="display:none;">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div class="texto">Por favor, aguarde...</div>
+        </div>
+    </div>
+
+    <div id="modalPessoa" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <div id="modalCaptcha" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-captcha" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <div id="modalProcuracoes" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <!-- hCaptcha: carregar uma única vez -->
+        <script src="https://js.hcaptcha.com/1/api.js?hl=pt" async defer></script>
+</body>
+</html>
